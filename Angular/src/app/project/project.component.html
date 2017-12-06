@@ -1,0 +1,82 @@
+<div class="project-view-container">
+    <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
+        <div fxFlex="50%" class="project-details-container">
+            <mat-card class="">
+                <mat-card-title>
+                    <div class="project-title">
+                        <p>{{project.name}}</p>
+                    </div>
+                    <div class="edit-button">
+                        <button title="Edytuj" mat-fab color="primary" mat-button (click)="editProject()">
+                            <mat-icon>mode_edit</mat-icon>
+                        </button>
+                    </div>
+                </mat-card-title>
+                <mat-card-content>
+                    <!-- TODO -->
+                    <p>Opis projektu</p>
+                    <br/> {{project.description}}
+                    <br/>
+                    <br/>
+                    <p>Czlonkowie zespolu</p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div fxFlex="50%" class="timeline-container">
+            <tskr-milestone></tskr-milestone>
+        </div>
+    </div>
+</div>
+<!-- <div flex>
+  <mat-card class="main-container">
+
+    <mat-card-title>
+      <mat-grid-list cols="8">
+          <mat-grid-tile class="project-name" colspan="6">
+              <strong>{{project.name}}</strong>
+          </mat-grid-tile>
+          <mat-grid-tile colspan="2">
+              <button (click)="editProject()" mat-raised-button color="primary"><mat-icon class="white-icon">edit</mat-icon></button>
+          </mat-grid-tile>
+      </mat-grid-list>
+    </mat-card-title>
+    <mat-card-content>{{project.description}}</mat-card-content>
+    <hr/>
+
+    <h3 style="margin-bottom: -15px">Team members</h3>
+  <p *ngIf="members.length===0">This project has no members.</p>
+  
+  <mat-grid-list cols="8" rowHeight="80px" class="margin-top">
+    <mat-grid-tile colspan="1">
+      <mat-icon color="primary">mail</mat-icon>
+    </mat-grid-tile>   
+    <br/>
+    <br/>
+    <mat-grid-tile colspan="5">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Email" [formControl]="emailFormControl" [(ngModel)]="newUserEmail">
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">Please enter a valid email address</mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">Email is <strong>required</strong></mat-error>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2">
+      <button mat-raised-button color="primary" class="white-icon" (click)="addMember()">Invite</button>
+    </mat-grid-tile>
+  </mat-grid-list>
+ 
+  <mat-grid-list *ngFor="let member of members" cols="8" rowHeight="40px" class="margin-top">
+      <mat-grid-tile colspan="1">
+          <mat-icon color="primary">account_circle</mat-icon>
+        </mat-grid-tile>   
+        <mat-grid-tile colspan="5" class="user-box">
+            {{member.firstName}} {{member.lastName}}
+        </mat-grid-tile>
+        <mat-grid-tile colspan="2" >
+          <button mat-raised-button color="primary" class="white-icon" (click)="removeMember(member)"> <i class="material-icons">clear</i> </button>
+        </mat-grid-tile>
+
+  </mat-grid-list>
+  </mat-card>
+</div> -->
+
+<!-- <tskr-milestone></tskr-milestone> -->

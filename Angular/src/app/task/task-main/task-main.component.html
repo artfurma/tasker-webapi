@@ -1,0 +1,47 @@
+<div class="task-main-container">
+    <div class="users-filters-container">
+        <mat-card class="users-filters">
+            <swiper [config]="config">
+                <div class="user-container" *ngFor="let user of users">
+                    <button mat-fab (click)="changeUserFilter(user)" [color]="isUserInFilters(user)">
+                        <mat-icon>person</mat-icon>
+                    </button>
+                    <br> {{user.username}}
+                </div>
+            </swiper>
+        </mat-card>
+    </div>
+    <div class="milestones-filters-container">
+        <mat-card class="milestones-filters">
+            <swiper [config]="config" class="milestones-filters">
+                <div class="milestone-container" *ngFor="let milestone of allMilestones">
+                    <i *ngIf="milestone.id === closestMilestone" class="material-icons closest">error_outline</i>    
+                    <div>
+                        <button     matTooltip="{{milestone?.endDate | date: 'dd/MM/yyyy'}}" 
+                                matTooltipPosition="above" 
+                                matTooltipClass="tooltipClass" 
+                                mat-fab (click)="changeMilestoneFilter(milestone)" 
+                                [color]="isMilestoneInFilters(milestone)">
+                        <mat-icon>timeline</mat-icon>
+                        </button>                
+                        <br> {{milestone?.name}} 
+                    </div>
+                    
+                </div>
+            </swiper>
+        </mat-card>
+    </div>
+
+    <div class="tasks-master-details-container">
+        <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
+            <div fxFlex class="tasks-master-container">
+                <router-outlet></router-outlet>
+            </div>
+            <div fxFlex class="tasks-details-container">
+                <router-outlet name="details"></router-outlet>
+                <router-outlet name="new"></router-outlet>
+                <router-outlet name="edit"></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400');
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: whitesmoke;
+}
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.app-belowtoolbar {
+    margin-top: 16px;
+}
+
+.secondary {
+    color: rgba(0, 0, 0, 0.54);
+}

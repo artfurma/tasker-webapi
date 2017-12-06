@@ -1,0 +1,97 @@
+<div flex class="register-container">
+	<mat-card>
+		<mat-card-content>
+			<form name="form" role="form" (ngSubmit)="f.form.valid && register()" #f="ngForm">
+				<div class="register-box-header">
+					<img src="assets/images/tasker-logo.png">
+				</div>
+				<hr/>
+				<!-- First Name -->
+				<mat-grid-list cols="9" rowHeight="75px">
+					<mat-grid-tile class="icon-aligner">
+						<mat-icon color="primary">account_circle</mat-icon>
+					</mat-grid-tile>
+					<mat-grid-tile colspan="7">
+						<mat-input-container class="justifier">
+							<input matInput required placeholder="First name" type="text" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel">
+							<mat-error *ngIf="formControl.hasError('required')">
+								First name is
+								<strong>required</strong>
+							</mat-error>
+						</mat-input-container>
+					</mat-grid-tile>
+				</mat-grid-list>
+
+				<!-- Last Name -->
+				<mat-grid-list cols="9" rowHeight="75px">
+					<mat-grid-tile class="icon-aligner">
+						<mat-icon color="primary">account_circle</mat-icon>
+					</mat-grid-tile>
+					<mat-grid-tile colspan="7">
+						<mat-input-container class="justifier">
+							<input matInput required placeholder="Last name" type="text" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel">
+							<mat-error *ngIf="formControl.hasError('required')">
+								Last name is
+								<strong>required</strong>
+							</mat-error>
+						</mat-input-container>
+					</mat-grid-tile>
+				</mat-grid-list>
+
+				<!-- Username -->
+				<mat-grid-list cols="9" rowHeight="75px">
+					<mat-grid-tile class="icon-aligner">
+						<mat-icon color="primary">lock</mat-icon>
+					</mat-grid-tile>
+					<mat-grid-tile colspan="7">
+						<mat-input-container class="justifier">
+							<input matInput required placeholder="Username" type="text" name="username" [(ngModel)]="model.username" #username="ngModel">
+							<mat-error *ngIf="formControl.hasError('required')">
+								Username is
+								<strong>required</strong>
+							</mat-error>
+						</mat-input-container>
+					</mat-grid-tile>
+				</mat-grid-list>
+
+				<!-- Email Address -->
+				<mat-grid-list cols="9" rowHeight="75px">
+					<mat-grid-tile class="icon-aligner">
+						<mat-icon color="primary">mail</mat-icon>
+					</mat-grid-tile>
+					<mat-grid-tile colspan="7">
+						<mat-input-container class="justifier">
+							<input matInput required placeholder="E-mail address" type="text" name="email" [(ngModel)]="model.email" #email="ngModel">
+							<mat-error *ngIf="formControl.hasError('required')">
+								E-mail address is
+								<strong>required</strong>
+							</mat-error>
+						</mat-input-container>
+					</mat-grid-tile>
+				</mat-grid-list>
+
+				<!-- Password -->
+				<mat-grid-list cols="9" rowHeight="75px">
+					<mat-grid-tile class="login-icon">
+						<mat-icon color="primary">remove_red_eye</mat-icon>
+					</mat-grid-tile>
+					<mat-grid-tile colspan="7">
+						<mat-input-container class="justifier">
+							<input matInput required placeholder="Password" type="password" name="password" [(ngModel)]="model.password" #password="ngModel">
+							<mat-error *ngIf="formControl.hasError('required')">
+								Password is
+								<strong>required</strong>
+							</mat-error>
+						</mat-input-container>
+					</mat-grid-tile>
+				</mat-grid-list>
+				<button mat-raised-button color="primary" type="submit" name="action" class="register-button" [disabled]="loading">
+					Register
+				</button>
+			</form>
+			<p mat-accent>Already have an account?
+				<a routerLink="/login">Log in</a>
+			</p>
+		</mat-card-content>
+	</mat-card>
+</div>
