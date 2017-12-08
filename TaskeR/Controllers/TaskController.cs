@@ -90,10 +90,10 @@ namespace TaskeR.Controllers
         }
 
         [HttpPut("changeparent")]
-        public IActionResult ChangeParent([FromBody] int taskId, [FromBody] int newParentId)
+        public IActionResult ChangeParent([FromBody] ChangeParentModel model)
         {
             
-            taskService.ChangeTaskParent(taskId, newParentId);
+            taskService.ChangeTaskParent(model.TaskId, model.NewParentId);
 
             return Ok("Zmieniony parent");
         }
