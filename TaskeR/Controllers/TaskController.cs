@@ -89,6 +89,15 @@ namespace TaskeR.Controllers
             return new NoContentResult();
         }
 
+        [HttpPut("changeparent")]
+        public IActionResult ChangeParent([FromBody] int taskId, [FromBody] int newParentId)
+        {
+            
+            taskService.ChangeTaskParent(taskId, newParentId);
+
+            return Ok("Zmieniony parent");
+        }
+
         [HttpGet]
         [Route("ToParent/{taskId}/{parentId}")]
         public IActionResult ToParent(int taskId, int parentId)

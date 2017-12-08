@@ -148,6 +148,16 @@ namespace BusinessLogic.Services.Classes
 
         }
 
+        public void ChangeTaskParent(int taskId, int newParentId)
+        {
+            var task = unitOfWork.TaskRepository.GetByID(taskId);
+            var parent = unitOfWork.TaskRepository.GetByID(newParentId);
+
+            task.ParenTask = parent;
+            unitOfWork.TaskRepository.Update(task);
+            unitOfWork.Save();
+        }
+
         private List<Node> BuildTreeAndGetRoots(List<TaskTreeDTO> actualObjects)
         {
             var lookup = new Dictionary<int, Node>();

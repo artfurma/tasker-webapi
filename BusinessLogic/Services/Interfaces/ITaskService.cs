@@ -13,8 +13,7 @@ namespace BusinessLogic.Services.Interfaces
         void ChangeTaskStatus(int taskId, int newStatusId);
         IEnumerable<TaskModelRecursive> GetAllTasksRecursive(int projectId);
         void DeleteTask(int taksId);
-
-
+        void ChangeTaskParent(int taskId, int newParentId);
 
 
     }
