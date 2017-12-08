@@ -55,6 +55,11 @@ namespace DataBase.DAL
                 .HasOne(p => p.Project)
                 .WithMany(b => b.Tasks)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Comment>()
+                .HasOne(p => p.Task)
+                .WithMany(b => b.Comments)
+                .OnDelete(DeleteBehavior.Cascade);
         }
 
 

@@ -12,9 +12,10 @@ using System;
 namespace DataBase.Migrations
 {
     [DbContext(typeof(TaskerContext))]
-    partial class TaskerContextModelSnapshot : ModelSnapshot
+    [Migration("20171208194058_CascadeCommentDelete")]
+    partial class CascadeCommentDelete
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
