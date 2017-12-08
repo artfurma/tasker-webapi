@@ -7,7 +7,7 @@ namespace BusinessLogic.BusinessModels
         public int Id { get; set; }
         public DateTime Date { get; set; }
         public string Content { get; set; }
-        public int MilestoneId { get; set; }
+        public MilestoneModel Milestone { get; set; }
         public string User { get; set; }
 
     }

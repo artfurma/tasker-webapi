@@ -19,7 +19,7 @@ namespace BusinessLogic.Services.Classes
 
         public IEnumerable<CommentModel> GetTaskComments(int taskId)
         {
-            var comments = unitOfWork.CommentRepository.Get(x => x.Task.ID == taskId, null, "User");
+            var comments = unitOfWork.CommentRepository.Get(x => x.Task.ID == taskId, null, "User,Milestone");
             return mapper.Map<List<CommentModel>>(comments);
 
         }

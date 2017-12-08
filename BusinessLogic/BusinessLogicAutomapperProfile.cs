@@ -88,6 +88,7 @@ namespace BusinessLogic
 
             CreateMap<Comment, CommentModel>()
                 .ForMember(dest => dest.Id, opts => opts.MapFrom(src => src.ID))
+                .ForMember(dest => dest.Milestone, opts => opts.MapFrom(src => src.Milestone))
                 .ForMember(dest => dest.User, opt => opt.MapFrom(src => src.User.Name + " " + src.User.Surname));
 
             CreateMap<CommentAdd, Comment>()
