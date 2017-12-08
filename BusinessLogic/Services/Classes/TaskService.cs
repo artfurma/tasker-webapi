@@ -109,8 +109,16 @@ namespace BusinessLogic.Services.Classes
         {
             var taskToEdit = mapper.Map<Task>(editTask);
 
-            var mainPerformer = unitOfWork.UserRepository.GetByID(editTask.MainPerformer);
-            taskToEdit.MainPerformer = mainPerformer;
+            if (editTask.MainPerformer != null)
+            {
+                var mainPerformer = unitOfWork.UserRepository.GetByID(editTask.MainPerformer);
+                taskToEdit.MainPerformer = mainPerformer;
+            }
+            else
+            {
+                taskToEdit.MainPerformer = null;
+            }
+
 
 
             var taskStatus = unitOfWork.TaskStatusRepository.Get(x => (int)x.Name == editTask.TaskStatusId).SingleOrDefault();
